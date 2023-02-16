@@ -7,7 +7,6 @@ export default function App() {
   const { isLoading, error, data } = useQuery("posts", () =>
     axios.get(`https://dummyjson.com/users`)
   );
-  //   console.log(data);
   return (
     <>
       <div className="App">
