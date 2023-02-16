@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import axios from "axios";
+import { useQuery } from "react-query";
+import { Card } from "./Components/Card";
+import "./Reset.css";
+import "./App.css";
+export default function App() {
+  const { isLoading, error, data } = useQuery("posts", () =>
+    axios.get(`https://dummyjson.com/users`)
+  );
+  //   console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <div className="main-container">
+          {isLoading && <p>Loading...</p>}
+          {!isLoading && (
+            <div className="row">
+              {data.data.users.map((user) => {
+                return (
+                  <div className="column" key={user.id}>
+                    <Card
+                      fullName={user.firstName + " " + user.lastName}
+                      userName={user.username}
+                      gender={user.gender}
+                      designation={user.company.title}
+                      age={user.age}
+                      email={user.email}
+                      phone={user.phone}
+                      dateOfBirth={user.birthDate}
+                      address={user.address.address}
+                      imageSrc={user.image}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
-
-export default App;

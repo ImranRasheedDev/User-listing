@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #f5f5f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 20px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.column {
+  flex: 0 0 auto;
+  width: 33.333%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex-item {
+  display: flex;
+  gap: 14px;
+}
+
+.user-info-holder {
+  flex-grow: 1;
+  align-self: center;
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.user-name {
+  font-size: 1.5rem;
+}
+
+.name,
+.user-name,
+.skill,
+.age,
+.email,
+.phone,
+.date-birth {
+  margin-bottom: 0.785rem;
+}
+
+.user-avatar {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto auto 14px;
+}
+
+.user-card {
+  background-color: #fff;
+  margin: 0 6px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
